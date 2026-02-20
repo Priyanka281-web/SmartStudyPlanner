@@ -9,32 +9,9 @@ import java.util.*;
 public class Main {
 
     static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
-
-        System.out.println("===== SMART STUDY PLANNER =====");
-        showPreviousPlan();
-        Subject[] subjectList = loadSubjects();
-        if(subjectList != null){
-    System.out.print("Previous subjects detected. Reuse them? (yes/no): ");
-    String choice = sc.nextLine();
-
-    if(!choice.equalsIgnoreCase("yes")){
-        subjectList = createSubjects();
-    }
-}
-else{
-    subjectList = createSubjects();
-}
-        System.out.print("Enter your name: ");
-        String name = sc.nextLine();
-        System.out.print("Enter number of days left for exam: ");
-        int days = sc.nextInt();
-
-        generatePlan(name, subjectList, days);
-        trackProgress(subjectList);
-
-    }
+    new PlannerGUI();
+}   
 
     static void generatePlan(String name, Subject[] subjects, int days){
         try{
@@ -242,5 +219,58 @@ static Subject[] createSubjects(){
 
     return subjectList;
 }
+public static String getPlan(String name, Subject[] subjects, int days){
 
+    StringBuilder plan = new StringBuilder();
+
+    plan.append("Hello ").append(name).append("\n");
+    plan.append("Your Personalized Study Plan:\n\n");
+
+    // Sorting subjects by difficulty
+    for(int i = 0; i < subjects.length - 1; i++){
+        for(int j = i + 1; j < subjects.length; j++){
+            if(getPriority(subjects[i].difficulty) < getPriority(subjects[j].difficulty)){
+                Subject temp = subjects[i];
+                subjects[i] = subjects[j];
+                subjects[j] = temp;
+            }
+        }
+    }
+
+    int totalChapters = 0;
+    for(Subject s : subjects)
+        totalChapters += s.chapters;
+
+    int chaptersPerDay = Math.max(1, totalChapters / days);
+
+    int currentSubject = 0;
+    int currentChapter = 1;
+
+    for(int d = 1; d <= days; d++){
+        plan.append("Day ").append(d).append(":\n");
+
+        int studiedToday = 0;
+
+        while(studiedToday < chaptersPerDay && currentSubject < subjects.length){
+            Subject sub = subjects[currentSubject];
+
+            plan.append("   Study -> ")
+                .append(sub.name)
+                .append(" Chapter ")
+                .append(currentChapter)
+                .append("\n");
+
+            currentChapter++;
+            studiedToday++;
+
+            if(currentChapter > sub.chapters){
+                currentSubject++;
+                currentChapter = 1;
+            }
+        }
+        plan.append("\n");
+    }
+
+    return plan.toString();
+}
 }  

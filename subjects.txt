@@ -1,2 +1,2 @@
-ds,hard,10
-js,medium,8
+ds,Hard,5
+js,Medium,3
