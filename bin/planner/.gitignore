@@ -1,4 +1,5 @@
 bin/
+.vscode/
 *.class
 studyplan.txt
 subjects.txt
