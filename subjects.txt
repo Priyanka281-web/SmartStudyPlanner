@@ -1,0 +1,2 @@
+ds,hard,10
+js,medium,8

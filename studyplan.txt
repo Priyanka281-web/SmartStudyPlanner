@@ -1,0 +1,49 @@
+
+================================
+Hello priya
+Your Personalized Study Plan:
+
+Day 1:
+   Study -> java (hard)
+Day 2:
+   Study -> js (medium)
+
+================================
+Hello priya
+Your Personalized Study Plan:
+
+Day 1:
+   Study -> ds Chapter 1
+   Study -> ds Chapter 2
+Day 2:
+   Study -> ds Chapter 3
+   Study -> ds Chapter 4
+Day 3:
+   Study -> js Chapter 1
+   Study -> js Chapter 2
+
+================================
+Hello priya
+Your Personalized Study Plan:
+
+Day 1:
+   Study -> ds Chapter 1
+   Study -> ds Chapter 2
+   Study -> ds Chapter 3
+   Study -> ds Chapter 4
+   Study -> ds Chapter 5
+   Study -> ds Chapter 6
+Day 2:
+   Study -> ds Chapter 7
+   Study -> ds Chapter 8
+   Study -> ds Chapter 9
+   Study -> ds Chapter 10
+   Study -> js Chapter 1
+   Study -> js Chapter 2
+Day 3:
+   Study -> js Chapter 3
+   Study -> js Chapter 4
+   Study -> js Chapter 5
+   Study -> js Chapter 6
+   Study -> js Chapter 7
+   Study -> js Chapter 8
